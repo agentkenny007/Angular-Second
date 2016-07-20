@@ -8,8 +8,26 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body ng-app="app">
-    <div class="container" ng-controller="ButtonController">
-      <button>{{ text }}</button>
+    <div class="container" ng-controller="GifController">
+      <form ng-submit="addGif(gif)">
+          <p class="control">
+              <input type="text" placeholder="Enter Gif Name" class="input" ng-model="gif.name">
+          </p>
+          <p class="control">
+              <input type="text" placeholder="Enter Gif URL" class="input" ng-model="gif.url">
+          </p>
+          <p class="control">
+              <button class="button">Add Gif</button>
+          </p>
+      </form>
+      <hr>
+      <ul>
+          <li ng-repeat="gif in gifs" data-id="{{ gif._id }}">
+              <h3>{{ gif.name }}</h3>
+              <img alt="" ng-src="{{ gif.url }}"><br>
+              <button class="button" ng-click="deleteMe(gif._id)">Delete</button>
+          </li>
+      </ul>
     </div>
     <script src="js/bundle.js"></script>
   </body>

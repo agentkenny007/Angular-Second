@@ -1,8 +1,8 @@
 import angular from 'angular';
-import {ButtonController} from './controllers/button.controller';
-
-console.log(angular);
+import GifController from './controllers/gif.controller';
+import { serverConstant } from './server.constant'
 
 angular
    .module('app',[])
-   .controller('ButtonController', ButtonController);
+   .constant('SERVER', serverConstant)
+   .controller('GifController', GifController);
